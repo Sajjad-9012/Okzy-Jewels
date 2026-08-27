@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOIRÉ — Jewelry</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <button class="mobile-menu-button" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="desktop-nav">
+
+        <a href="#home">HOME</a>
+
+        <div class="shop-dropdown">
+
+            <a href="#shop">
+                SHOP
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown">
+
+                <a href="#shop" onclick="filterProducts('all')">
+                    All Jewelry
+                </a>
+
+                <a href="#shop" onclick="filterProducts('bracelets')">
+                    Bracelets
+                </a>
+
+                <a href="#shop" onclick="filterProducts('rings')">
+                    Rings
+                </a>
+
+                <a href="#shop" onclick="filterProducts('earrings')">
+                    Earrings
+                </a>
+
+                <a href="#shop" onclick="filterProducts('necklaces')">
+                    Necklaces
+                </a>
+
+            </div>
+
+        </div>
+
+        <a href="#collections">COLLECTIONS</a>
+        <a href="#story">OUR STORY</a>
+        <a href="#faq">FAQ</a>
+
+    </nav>
+
+
+    <a href="#home" class="logo">
+        OKZY
+    </a>
+
+
+    <div class="nav-actions">
+
+        <button onclick="openSearch()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button onclick="openCart()" class="bag-button">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button onclick="toggleMenu()" class="mobile-close">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#shop" onclick="toggleMenu()">Shop</a>
+    <a href="#collections" onclick="toggleMenu()">Collections</a>
+    <a href="#story" onclick="toggleMenu()">Our Story</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <button class="search-close" onclick="closeSearch()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="search-container">
+
+        <p>SEARCH NOIRÉ</p>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search bracelets, rings, earrings..."
+            oninput="searchProducts()"
+        >
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="gold-label">
+            TIMELESS • BOLD • REFINED
+        </p>
+
+        <h1>
+            Jewelry that<br>
+            defines you.
+        </h1>
+
+        <p>
+            Discover carefully designed pieces made
+            to elevate the everyday.
+        </p>
+
+        <a href="#shop" class="gold-button">
+            SHOP COLLECTION
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFITS -->
+
+<section class="benefits">
+
+    <div class="benefit">
+
+        <i class="fa-regular fa-gem"></i>
+
+        <div>
+            <h3>PREMIUM QUALITY</h3>
+            <p>Designed for everyday wear.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <i class="fa-solid fa-truck-fast"></i>
+
+        <div>
+            <h3>FAST DELIVERY</h3>
+            <p>Nationwide delivery available.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <div>
+            <h3>QUALITY GUARANTEE</h3>
+            <p>Made with attention to detail.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <div>
+            <h3>GIFT READY</h3>
+            <p>Beautiful packaging included.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <p class="gold-label">
+            EXPLORE
+        </p>
+
+        <h2>
+            Shop by category
+        </h2>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <div class="category-card"
+             onclick="filterProducts('bracelets')">
+
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85">
+
+            <div>
+                <h3>BRACELETS</h3>
+                <span>SHOP NOW →</span>
+            </div>
+
+        </div>
+
+
+        <div class="category-card"
+             onclick="filterProducts('rings')">
+
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85">
+
+            <div>
+                <h3>RINGS</h3>
+                <span>SHOP NOW →</span>
+            </div>
+
+        </div>
+
+
+        <div class="category-card"
+             onclick="filterProducts('earrings')">
+
+            <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=900&q=85">
+
+            <div>
+                <h3>EARRINGS</h3>
+                <span>SHOP NOW →</span>
+            </div>
+
+        </div>
+
+
+        <div class="category-card"
+             onclick="filterProducts('necklaces')">
+
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85">
+
+            <div>
+                <h3>NECKLACES</h3>
+                <span>SHOP NOW →</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="shop-section" id="shop">
+
+    <div class="shop-heading">
+
+        <div>
+
+            <p class="gold-label">
+                CURATED FOR YOU
+            </p>
+
+            <h2>
+                Best sellers
+            </h2>
+
+        </div>
+
+
+        <div class="filters">
+
+            <button
+                class="filter active"
+                onclick="filterProducts('all')">
+                ALL
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterProducts('bracelets')">
+                BRACELETS
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterProducts('rings')">
+                RINGS
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterProducts('earrings')">
+                EARRINGS
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterProducts('necklaces')">
+                NECKLACES
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="product-grid" id="productGrid"></div>
+
+</section>
+
+
+<!-- FEATURED COLLECTION -->
+
+<section class="featured" id="collections">
+
+    <div class="featured-content">
+
+        <p class="gold-label">
+            THE NOIRÉ SIGNATURE
+        </p>
+
+        <h2>
+            Made to be<br>
+            noticed.
+        </h2>
+
+        <p>
+            Bold silhouettes. Refined details.
+            Jewelry created for the moments
+            that deserve something extra.
+        </p>
+
+        <a href="#shop" class="outline-button">
+            DISCOVER THE COLLECTION
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- TWO COLLECTIONS -->
+
+<section class="two-collections">
+
+    <div class="collection-box men">
+
+        <div>
+
+            <p class="gold-label">
+                FOR HIM
+            </p>
+
+            <h2>
+                Bold essentials.
+            </h2>
+
+            <a href="#shop"
+               onclick="filterProducts('bracelets')"
+               class="outline-button">
+                SHOP MEN'S
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="collection-box women">
+
+        <div>
+
+            <p class="gold-label">
+                FOR HER
+            </p>
+
+            <h2>
+                Effortless elegance.
+            </h2>
+
+            <a href="#shop"
+               onclick="filterProducts('earrings')"
+               class="outline-button">
+                SHOP WOMEN'S
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+    <div class="story-image">
+
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=85">
+
+    </div>
+
+
+    <div class="story-content">
+
+        <p class="gold-label">
+            OUR PHILOSOPHY
+        </p>
+
+        <h2>
+            Less noise.<br>
+            More character.
+        </h2>
+
+        <p>
+            NOIRÉ was created around a simple idea:
+            jewelry should feel personal.
+        </p>
+
+        <p>
+            We choose designs that balance
+            modern silhouettes with timeless
+            details — pieces that work with
+            your wardrobe rather than compete
+            with it.
+        </p>
+
+        <a href="#" class="dark-link">
+            LEARN MORE →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="reviews">
+
+    <div class="section-title">
+
+        <p class="gold-label">
+            CUSTOMER STORIES
+        </p>
+
+        <h2>
+            Loved by our customers.
+        </h2>
+
+    </div>
+
+
+    <div class="review-grid">
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                “The bracelet looks even better
+                in person. The packaging was
+                beautiful too.”
+            </p>
+
+            <strong>
+                Ayesha K.
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                “Minimal, elegant and exactly
+                what I was looking for.”
+            </p>
+
+            <strong>
+                Hira M.
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                “Ordered a ring as a gift and
+                she absolutely loved it.”
+            </p>
+
+            <strong>
+                Zain A.
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
+
+<section class="instagram">
+
+    <p class="gold-label">
+        FOLLOW NOIRÉ
+    </p>
+
+    <h2>
+        @noire.jewelry
+    </h2>
+
+
+    <div class="instagram-grid">
+
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=85">
+
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85">
+
+        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=700&q=85">
+
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=700&q=85">
+
+        <img src="https://images.unsplash.com/photo-1598560912005-59a0a87c6f0f?auto=format&fit=crop&w=700&q=85">
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq" id="faq">
+
+    <div class="faq-title">
+
+        <p class="gold-label">
+            HAVE QUESTIONS?
+        </p>
+
+        <h2>
+            Frequently asked questions
+        </h2>
+
+    </div>
+
+
+    <div class="faq-list">
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+                How long does delivery take?
+                <span>+</span>
+            </button>
+
+            <p>
+                Orders are normally delivered within
+                3–5 working days across Pakistan.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+                Do you offer cash on delivery?
+                <span>+</span>
+            </button>
+
+            <p>
+                Cash on delivery can be offered
+                for eligible locations.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+                How do I care for my jewelry?
+                <span>+</span>
+            </button>
+
+            <p>
+                Keep your jewelry away from
+                perfumes, chemicals and excessive
+                moisture. Store pieces separately.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button onclick="toggleFAQ(this)">
+                Can I exchange my order?
+                <span>+</span>
+            </button>
+
+            <p>
+                Exchanges can be accepted according
+                to the store's exchange policy.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <p class="gold-label">
+        JOIN THE NOIRÉ LIST
+    </p>
+
+    <h2>
+        Something new is coming.
+    </h2>
+
+    <p>
+        Be the first to know about new drops,
+        exclusive offers and private releases.
+    </p>
+
+
+    <form onsubmit="subscribe(event)">
+
+        <input
+            type="email"
+            placeholder="Your email address"
+            required
+        >
+
+        <button>
+            SUBSCRIBE
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h2>
+                NOIRÉ
+            </h2>
+
+            <p>
+                Jewelry with character.
+                Designed for you.
+            </p>
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>SHOP</h4>
+
+            <a href="#shop">All Jewelry</a>
+            <a href="#shop">Bracelets</a>
+            <a href="#shop">Rings</a>
+            <a href="#shop">Earrings</a>
+            <a href="#shop">Necklaces</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>HELP</h4>
+
+            <a href="#faq">FAQs</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Jewelry Care</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>CONTACT</h4>
+
+            <a href="https://wa.me/923001234567">
+                WhatsApp
+            </a>
+
+            <a href="tel:+923001234567">
+                +92 300 1234567
+            </a>
+
+            <a href="mailto:hello@noirejewelry.com">
+                hello@noirejewelry.com
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 NOIRÉ Jewelry
+        </span>
+
+        <span>
+            Secure payments • Nationwide delivery
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart-overlay"
+     id="cartOverlay"
+     onclick="closeCart()">
+</div>
+
+
+<aside class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>
+            Your Bag
+        </h2>
+
+        <button onclick="closeCart()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems"></div>
+
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="cartTotal">
+                Rs. 0
+            </strong>
+
+        </div>
+
+
+        <button class="checkout">
+            PROCEED TO CHECKOUT
+        </button>
+
+        <small>
+            Shipping calculated at checkout.
+        </small>
+
+    </div>
+
+</aside>
+
+
+<!-- WHATSAPP -->
+
+<a
+    href="https://wa.me/923001234567"
+    class="whatsapp"
+    target="_blank">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
